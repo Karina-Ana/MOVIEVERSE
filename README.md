@@ -1,180 +1,157 @@
-# MOVIEVERSE 🎬
+# 🎬 MOVIEVERSE
 
-**Aplikasi Katalog Film Berbasis Flutter**
+**MOVIEVERSE** adalah aplikasi katalog film berbasis mobile yang dikembangkan menggunakan Flutter dan bahasa pemrograman Dart. Aplikasi ini membantu pengguna mencari, menjelajahi, dan melihat informasi film dalam satu tempat melalui data yang diperoleh dari API.
 
-MOVIEVERSE adalah aplikasi mobile berbasis Flutter dan Dart yang dirancang untuk membantu pengguna menjelajahi katalog film, mencari film berdasarkan kata kunci, melihat informasi detail, dan menyimpan film favorit. Aplikasi ini menggunakan API untuk mengambil data film secara dinamis dan menampilkannya dalam antarmuka bertema gelap.
+MOVIEVERSE memiliki antarmuka bertema gelap (*dark theme*), fitur pencarian dan penyaringan film, halaman detail, serta daftar film favorit yang dapat disimpan untuk diakses kembali.
 
 ## ✨ Fitur Utama
 
-- **Katalog Film** — Menampilkan daftar film beserta poster, judul, tahun rilis, dan rating jika tersedia.
-- **Pencarian Film** — Mencari film berdasarkan kata kunci.
+- **Katalog Film** — Menampilkan daftar film beserta poster dan informasi film yang diperoleh dari API.
+- **Pencarian Film** — Memudahkan pengguna menemukan film berdasarkan kata kunci.
 - **Filter Genre** — Menyaring daftar film berdasarkan genre.
 - **Pengurutan Film** — Mengurutkan film berdasarkan:
-  - Popular — popularitas tertinggi.
-  - Top Rated — rating tertinggi.
-  - Title A–Z — judul secara alfabetis.
-- **Detail Film** — Menampilkan informasi film, seperti sinopsis, poster, tahun rilis, durasi, genre, rating, sutradara, pemeran, dan informasi lain yang tersedia dari API.
-- **Daftar Favorit** — Menambahkan atau menghapus film favorit dan menyimpan pilihan secara lokal.
-- **Informasi Pemeran** — Mengambil gambar pemeran dari Wikipedia apabila tersedia.
-- **Trailer Film** — Membuka tautan trailer eksternal apabila tersedia.
-- **Tema Gelap** — Menggunakan desain antarmuka bertema gelap.
-- **Penanganan Proses Asinkron** — Menampilkan kondisi loading, data, dan kesalahan saat mengambil data.
+  - `Popular` — Popularitas tertinggi.
+  - `Top Rated` — Rating tertinggi.
+  - `Title A–Z` — Judul film berdasarkan urutan alfabet.
+- **Detail Film** — Menampilkan informasi lebih lengkap, seperti judul, poster, deskripsi, tahun rilis, durasi, rating, genre, dan informasi pemeran sesuai data yang tersedia.
+- **Film Favorit** — Menyimpan film pilihan agar dapat diakses kembali melalui halaman Favorites.
+- **Trailer Film** — Menyediakan tautan untuk membuka trailer film melalui YouTube.
+- **Dark Theme** — Menggunakan tema gelap untuk menjaga konsistensi tampilan aplikasi.
+- **Pull-to-Refresh** — Memuat ulang katalog film melalui gerakan menarik halaman ke bawah.
+- **Status Data** — Menampilkan indikator loading serta penanganan kondisi error dan data kosong.
 
 ## 🛠️ Teknologi dan Package
 
 | Teknologi / Package | Kegunaan |
 |---|---|
-| Flutter | Framework untuk membangun antarmuka aplikasi mobile. |
+| Flutter | Framework untuk membangun aplikasi mobile. |
 | Dart | Bahasa pemrograman aplikasi. |
-| `http` | Mengirim permintaan HTTP ke API. |
-| `shared_preferences` | Menyimpan daftar favorit secara lokal. |
-| `url_launcher` | Membuka tautan trailer melalui aplikasi eksternal. |
-| `cupertino_icons` | Menyediakan ikon bergaya Cupertino. |
-| `flutter_test` | Mendukung pengujian aplikasi Flutter. |
-| `flutter_lints` | Membantu menjaga kualitas dan konsistensi kode. |
+| API | Sumber data katalog dan detail film. |
+| `http` | Mengirim permintaan HTTP untuk mengambil data dari API. |
+| `shared_preferences` | Menyimpan data lokal sederhana, termasuk data favorit sesuai implementasi aplikasi. |
+| `url_launcher` | Membuka tautan trailer film melalui aplikasi atau browser yang mendukungnya. |
+| `dart:convert` | Mengolah respons JSON menjadi data yang dapat digunakan aplikasi. |
 
-Package `json_annotation`, `build_runner`, dan `json_serializable` juga tercantum dalam konfigurasi proyek sebagai dependency tambahan untuk kebutuhan serialisasi dan pengembangan.
+## 📂 Struktur Proyek
 
-## 🌐 Sumber Data API
-
-MOVIEVERSE menggunakan sumber data eksternal berikut:
-
-**1. Cinemeta Catalog API**
-
-Digunakan untuk mengambil katalog film.
-
-https://cinemeta-catalogs.strem.io/top/catalog/movie/top.json
-
-**2. Cinemeta API**
-
-Digunakan untuk mengambil informasi detail film berdasarkan ID IMDb.
-
-https://v3-cinemeta.strem.io/
-
-Format endpoint detail film:
-
-```text
-https://v3-cinemeta.strem.io/meta/movie/{imdb_id}.json
-```
-
-`{imdb_id}` merupakan ID IMDb film yang dipilih.
-
-**3. Wikipedia REST API**
-
-Digunakan untuk mencari gambar pemeran apabila tersedia.
-
-https://en.wikipedia.org/api/rest_v1/
-
-Data dari API diterima dalam format JSON, kemudian diproses menjadi objek Dart menggunakan class model `Movie` sebelum ditampilkan pada antarmuka aplikasi.
-
-## 📁 Struktur Proyek
+Struktur file utama aplikasi MOVIEVERSE:
 
 ```text
 lib/
-├── model/
-│   └── movie.dart
-├── view/
-│   ├── app_colors.dart
-│   ├── detail.dart
-│   ├── favorites.dart
-│   └── home.dart
-├── viewmodel/
-│   ├── favorites_store.dart
-│   └── fetchmovie.dart
-└── main.dart
-
-test/
-└── widget_test.dart
+├── main.dart
+├── movie.dart
+├── home.dart
+├── detail.dart
+├── favorites.dart
+├── favorites_store.dart
+├── fetchmovie.dart
+└── app_colors.dart
 
 pubspec.yaml
 README.md
 ```
 
-**Penjelasan direktori:**
+Keterangan:
 
-- `model/` — Menyimpan class model untuk merepresentasikan data film.
-- `view/` — Berisi halaman aplikasi dan pengaturan warna antarmuka.
-- `viewmodel/` — Mengelola pengambilan data API dan penyimpanan favorit.
-- `main.dart` — Titik masuk aplikasi dan konfigurasi tema serta navigasi.
-- `test/` — Menyimpan berkas pengujian aplikasi.
-- `pubspec.yaml` — Mengatur dependency dan konfigurasi proyek Flutter.
+- `main.dart` — Titik masuk aplikasi dan konfigurasi tema.
+- `movie.dart` — Model data film dan proses pemetaan data JSON.
+- `home.dart` — Halaman utama yang menampilkan katalog, pencarian, filter, dan pengurutan film.
+- `detail.dart` — Halaman detail film dan informasi terkait.
+- `favorites.dart` — Halaman daftar film favorit.
+- `favorites_store.dart` — Pengelolaan penyimpanan data film favorit.
+- `fetchmovie.dart` — Pengambilan dan pemrosesan data film dari API.
+- `app_colors.dart` — Pengaturan warna aplikasi.
+- `pubspec.yaml` — Konfigurasi proyek dan dependensi package.
 
 ## 🚀 Cara Menjalankan Aplikasi
 
-### Persyaratan
+### 1. Persiapan
 
 Pastikan perangkat pengembangan telah memiliki:
 
 - Flutter SDK.
-- Dart SDK yang sesuai dengan persyaratan proyek Flutter.
+- Dart SDK yang sesuai dengan versi Flutter.
 - Android Studio atau Visual Studio Code.
-- Emulator Android atau perangkat Android fisik.
-- Koneksi internet untuk mengambil data dari API.
+- Android Emulator atau perangkat Android untuk menjalankan aplikasi.
+- Git, jika ingin mengkloning repositori.
 
-### Langkah Instalasi
+### 2. Clone Repositori
 
-**1. Clone repositori**
-
-```bash
-git clone <URL_REPOSITORY_GITHUB>
-```
-
-Ganti `<URL_REPOSITORY_GITHUB>` dengan URL repositori GitHub milikmu.
-
-**2. Masuk ke direktori proyek**
+Buka terminal, kemudian jalankan perintah berikut:
 
 ```bash
-cd <NAMA_FOLDER_PROYEK>
+git clone <URL_REPOSITORI_GITHUB>
 ```
 
-**3. Unduh dependency**
+Masuk ke direktori proyek:
+
+```bash
+cd MOVIEVERSE
+```
+
+Ganti `<URL_REPOSITORI_GITHUB>` dengan URL repositori GitHub milik Anda.
+
+### 3. Instal Dependensi
+
+Jalankan perintah berikut untuk mengunduh package yang dibutuhkan:
 
 ```bash
 flutter pub get
 ```
 
-**4. Periksa konfigurasi Flutter**
+### 4. Periksa Konfigurasi Flutter
+
+Pastikan instalasi Flutter telah siap:
 
 ```bash
 flutter doctor
 ```
 
-**5. Jalankan aplikasi**
+Selesaikan masalah konfigurasi yang dilaporkan jika diperlukan.
 
-Pastikan emulator atau perangkat telah terhubung, lalu jalankan:
+### 5. Jalankan Aplikasi
+
+Hubungkan perangkat Android atau nyalakan emulator, lalu jalankan:
 
 ```bash
 flutter run
 ```
 
-## 🧪 Pengujian
+Aplikasi MOVIEVERSE akan dibangun dan dijalankan pada perangkat yang dipilih.
 
-Untuk menjalankan pengujian yang tersedia dalam proyek, gunakan perintah:
+### 6. Build APK (Opsional)
 
-```bash
-flutter test
-```
-
-Untuk memeriksa masalah statis pada kode, jalankan:
+Untuk membuat file APK yang dapat dipasang pada perangkat Android, jalankan:
 
 ```bash
-flutter analyze
+flutter build apk --release
 ```
 
-Hasil pengujian dan analisis bergantung pada kondisi kode serta lingkungan pengembangan.
+Jika proses build berhasil, file APK biasanya tersedia di:
 
-## 📌 Catatan
+```text
+build/app/outputs/flutter-apk/app-release.apk
+```
 
-- Aplikasi membutuhkan koneksi internet untuk mengambil data film dan gambar pemeran dari API.
-- Kelengkapan informasi film bergantung pada data yang disediakan oleh API.
-- Gambar pemeran, poster, atau trailer mungkin tidak tersedia untuk semua film.
-- Daftar favorit disimpan secara lokal menggunakan `shared_preferences`.
-- Cinemeta dan Wikipedia merupakan layanan eksternal yang tidak dikelola oleh aplikasi MOVIEVERSE.
+## 📱 Penggunaan Aplikasi
 
-## 👨‍💻 Tujuan Proyek
+1. Buka aplikasi MOVIEVERSE.
+2. Jelajahi katalog film pada halaman Home.
+3. Gunakan kolom pencarian untuk mencari film berdasarkan kata kunci.
+4. Gunakan filter genre atau pilihan pengurutan untuk menyesuaikan daftar film.
+5. Pilih film untuk melihat informasi detailnya.
+6. Gunakan fitur trailer untuk membuka video trailer melalui YouTube.
+7. Simpan film yang diinginkan ke Favorites agar mudah ditemukan kembali.
 
-MOVIEVERSE dikembangkan sebagai proyek Ujian Tengah Semester (UTS) mata kuliah Pemrograman Mobile. Proyek ini menerapkan pengembangan antarmuka menggunakan Flutter, pengambilan dan pengolahan data API, pemrograman asinkron, penggunaan class model Dart, serta penyimpanan data lokal.
+## 🎓 Informasi Proyek
 
----
+- **Nama Aplikasi:** MOVIEVERSE
+- **Jenis Aplikasi:** Katalog film berbasis mobile
+- **Framework:** Flutter
+- **Bahasa Pemrograman:** Dart
+- **Mata Kuliah:** Pemrograman Mobile
+- **Jenis Proyek:** Ujian Tengah Semester (UTS)
 
-**MOVIEVERSE — Explore Movies, Discover Stories.**
+## 📄 Lisensi
+
+Proyek ini dibuat untuk keperluan pembelajaran dan pengembangan aplikasi mobile. Pastikan penggunaan data, API, gambar poster, dan materi film mengikuti ketentuan dari penyedia masing-masing.
