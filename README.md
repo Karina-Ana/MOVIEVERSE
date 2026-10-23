@@ -27,50 +27,36 @@ MOVIEVERSE memiliki antarmuka bertema gelap (*dark theme*), fitur pencarian dan 
 Menampilkan katalog film, kolom pencarian, pilihan pengurutan, dan filter genre.
 
 
-<img width="270" height="642" alt="image" src="https://github.com/user-attachments/assets/1bb00421-3c62-4a72-bc2d-f9d0b3082056" />
+<img width="270" height="642" alt="image" src="https://github.com/user-attachments/assets/28a19f6b-be3e-4c2a-bc86-3c95deb147d4" />
 
 
-### 2. Pencarian dan Filter Genre
+### 2. Halaman Detail Film
 
-Menampilkan fitur pencarian film berdasarkan kata kunci dan penyaringan film berdasarkan genre.
+Menampilkan informasi film yang dipilih, seperti poster, judul, deskripsi, tahun rilis, durasi, rating, genre, serta tombol trailer.
 
-![Pencarian dan Filter Genre MOVIEVERSE](screenshots/search-filter.png)
 
-### 3. Pengurutan Film
+<img width="259" height="1381" alt="image" src="https://github.com/user-attachments/assets/cf04bc4a-6861-4ade-8d77-daa7266762c2" />
 
-Menampilkan pilihan pengurutan film berdasarkan Popular, Top Rated, dan Title A–Z.
 
-![Pengurutan Film MOVIEVERSE](screenshots/sorting.png)
-
-### 4. Halaman Detail Film
-
-Menampilkan informasi film yang dipilih, seperti poster, judul, deskripsi, tahun rilis, durasi, rating, genre, dan informasi lainnya sesuai data yang tersedia.
-
-![Detail Film MOVIEVERSE](screenshots/detail.png)
-
-### 5. Halaman Favorites
+### 3. Halaman Favorites
 
 Menampilkan daftar film yang telah disimpan oleh pengguna sebagai film favorit.
 
-![Favorites MOVIEVERSE](screenshots/favorites.png)
 
-### 6. Trailer Film
+<img width="311" height="696" alt="image" src="https://github.com/user-attachments/assets/ab615b7e-561e-4121-b03c-be30a6a98b6a" />
 
-Menampilkan bagian atau tombol trailer pada halaman detail film yang dapat digunakan untuk membuka video trailer melalui YouTube.
-
-![Trailer Film MOVIEVERSE](screenshots/trailer.png)
 
 ## 🛠️ Teknologi dan Package
 
-| Teknologi / Package | Kegunaan |
-|---|---|
-| Flutter | Framework untuk membangun aplikasi mobile. |
-| Dart | Bahasa pemrograman aplikasi. |
-| API | Sumber data katalog dan detail film. |
-| `http` | Mengirim permintaan HTTP untuk mengambil data dari API. |
+| Teknologi / Package  | Kegunaan                                                                            |
+| -------------------- | ----------------------------------------------------------------------------------- |
+| Flutter              | Framework untuk membangun aplikasi mobile.                                          |
+| Dart                 | Bahasa pemrograman aplikasi.                                                        |
+| API                  | Sumber data katalog dan detail film.                                                |
+| `http`               | Mengirim permintaan HTTP untuk mengambil data dari API.                             |
 | `shared_preferences` | Menyimpan data lokal sederhana, termasuk data favorit sesuai implementasi aplikasi. |
-| `url_launcher` | Membuka tautan trailer film melalui aplikasi atau browser yang mendukungnya. |
-| `dart:convert` | Mengolah respons JSON menjadi data yang dapat digunakan aplikasi. |
+| `url_launcher`       | Membuka tautan trailer film melalui aplikasi atau browser yang mendukungnya.        |
+| `dart:convert`       | Mengolah respons JSON menjadi data yang dapat digunakan aplikasi.                   |
 
 ## 📂 Struktur Proyek
 
@@ -189,9 +175,3 @@ build/app/outputs/flutter-apk/app-release.apk
 - **Jenis Aplikasi:** Katalog film berbasis mobile
 - **Framework:** Flutter
 - **Bahasa Pemrograman:** Dart
-- **Mata Kuliah:** Pemrograman Mobile
-- **Jenis Proyek:** Ujian Tengah Semester (UTS)
-
-## 📄 Lisensi
-
-Proyek ini dibuat untuk keperluan pembelajaran dan pengembangan aplikasi mobile. Pastikan penggunaan data, API, gambar poster, dan materi film mengikuti ketentuan dari penyedia masing-masing.
