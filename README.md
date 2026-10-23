@@ -1,4 +1,4 @@
-# 🎬 MOVIEVERSE
+<img width="270" height="642" alt="image" src="https://github.com/user-attachments/assets/43a1145e-8f5b-4078-962d-c6387a86feb5" /># 🎬 MOVIEVERSE
 
 **MOVIEVERSE** adalah aplikasi katalog film berbasis mobile yang dikembangkan menggunakan Flutter dan bahasa pemrograman Dart. Aplikasi ini membantu pengguna mencari, menjelajahi, dan melihat informasi film dalam satu tempat melalui data yang diperoleh dari API.
 
@@ -19,6 +19,47 @@ MOVIEVERSE memiliki antarmuka bertema gelap (*dark theme*), fitur pencarian dan 
 - **Dark Theme** — Menggunakan tema gelap untuk menjaga konsistensi tampilan aplikasi.
 - **Pull-to-Refresh** — Memuat ulang katalog film melalui gerakan menarik halaman ke bawah.
 - **Status Data** — Menampilkan indikator loading serta penanganan kondisi error dan data kosong.
+
+## 📸 Tangkapan Layar Aplikasi
+
+### 1. Halaman Home
+
+Menampilkan katalog film, kolom pencarian, pilihan pengurutan, dan filter genre.
+
+
+<img width="479" height="1600" alt="WhatsApp Image 2026-10-19 at 23 17 06" src="https://github.com/user-attachments/assets/aa0cf2ec-d3bb-4b68-9c58-a6a39e0561a2" />
+
+
+
+### 2. Pencarian dan Filter Genre
+
+Menampilkan fitur pencarian film berdasarkan kata kunci dan penyaringan film berdasarkan genre.
+
+![Pencarian dan Filter Genre MOVIEVERSE](screenshots/search-filter.png)
+
+### 3. Pengurutan Film
+
+Menampilkan pilihan pengurutan film berdasarkan Popular, Top Rated, dan Title A–Z.
+
+![Pengurutan Film MOVIEVERSE](screenshots/sorting.png)
+
+### 4. Halaman Detail Film
+
+Menampilkan informasi film yang dipilih, seperti poster, judul, deskripsi, tahun rilis, durasi, rating, genre, dan informasi lainnya sesuai data yang tersedia.
+
+![Detail Film MOVIEVERSE](screenshots/detail.png)
+
+### 5. Halaman Favorites
+
+Menampilkan daftar film yang telah disimpan oleh pengguna sebagai film favorit.
+
+![Favorites MOVIEVERSE](screenshots/favorites.png)
+
+### 6. Trailer Film
+
+Menampilkan bagian atau tombol trailer pada halaman detail film yang dapat digunakan untuk membuka video trailer melalui YouTube.
+
+![Trailer Film MOVIEVERSE](screenshots/trailer.png)
 
 ## 🛠️ Teknologi dan Package
 
