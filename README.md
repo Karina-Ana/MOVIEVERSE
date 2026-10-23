@@ -1,4 +1,4 @@
-<img width="270" height="642" alt="image" src="https://github.com/user-attachments/assets/43a1145e-8f5b-4078-962d-c6387a86feb5" /># 🎬 MOVIEVERSE
+# 🎬 MOVIEVERSE
 
 **MOVIEVERSE** adalah aplikasi katalog film berbasis mobile yang dikembangkan menggunakan Flutter dan bahasa pemrograman Dart. Aplikasi ini membantu pengguna mencari, menjelajahi, dan melihat informasi film dalam satu tempat melalui data yang diperoleh dari API.
 
@@ -27,8 +27,7 @@ MOVIEVERSE memiliki antarmuka bertema gelap (*dark theme*), fitur pencarian dan 
 Menampilkan katalog film, kolom pencarian, pilihan pengurutan, dan filter genre.
 
 
-<img width="479" height="1600" alt="WhatsApp Image 2026-10-19 at 23 17 06" src="https://github.com/user-attachments/assets/aa0cf2ec-d3bb-4b68-9c58-a6a39e0561a2" />
-
+<img width="270" height="642" alt="image" src="https://github.com/user-attachments/assets/1bb00421-3c62-4a72-bc2d-f9d0b3082056" />
 
 
 ### 2. Pencarian dan Filter Genre
